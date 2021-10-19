@@ -1,0 +1,12 @@
+### Send POST request with json body
+POST http://localhost:8080/pizza/post
+Content-Type: application/json
+
+{
+  "name": "New",
+  "calories": 1600,
+  "image": "",
+  "price": 600,
+  "weight": 1200,
+  "diameter": 40
+}

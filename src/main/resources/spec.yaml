@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: Title
+  description: Title
+  version: 1.0.0
+servers:
+  - url: 'http'
+paths:
+  /cake:
+    get:
+      description: Return list of all pizzas
+      responses:
+        200:
+          description: Successful
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/pizzas'
+    post:
+      description: Add a new pizza to the shop
+      responses:
+        405:
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/pizzas'
+        201:
+          description: Successful posted
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/pizzas'
+
+
+components:
+  schemas:
+    pizzas:
+      additionalProperties: false
+      type: object
+      properties:
+        cake_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/pizza'
+
+
+    pizza:
+      type: object
+      description: Short info about pizza
+      required:
+        - name
+        - calories
+        - image
+        - price
+        - weight
+        - diameter
+      properties:
+        name:
+          type: string
+          description: Name of pizza
+        calories:
+          type: number
+          description: Calories of pizza
+        image:
+          type: string
+          description: Relative image of pizza image
+        price:
+          type: number
+          description: Price of pizza
+        weight:
+          type: number
+          description: Weight of pizza
+        diameter:
+          type: number
+          description: Diameter of pizza

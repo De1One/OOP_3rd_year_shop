@@ -6,8 +6,10 @@ info:
 servers:
   - url: 'http'
 paths:
-  /cake:
+  /getPizzas:
     get:
+      tags:
+        -pizza-controller
       description: Return list of all pizzas
       responses:
         200:
@@ -17,7 +19,10 @@ paths:
               schema:
                 oneOf:
                   - $ref: '#/components/schemas/pizzas'
+  /postPizza:
     post:
+      tags:
+        -pizza-controller
       description: Add a new pizza to the shop
       responses:
         405:

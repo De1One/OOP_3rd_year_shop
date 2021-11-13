@@ -1,4 +1,4 @@
-package com.balaluevegor.shop.dto;
+package com.balaluevegor.shop.rest.dto.pizza;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -6,14 +6,16 @@ import lombok.Data;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.math.BigDecimal;
 
 @Data
 @Schema(description = "Short info about pizza")
 @Validated
 public class Pizza {
-    @NotNull
-    @Schema(description = "Id of pizza",required = true)
+
+    @Null
+    @Schema(description = "Id of pizza",required = false)
     @JsonProperty("id")
     private Long id;
 
